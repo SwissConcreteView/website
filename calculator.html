@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🇨🇭 - SwissConcreteView - Graphs</title>
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.4.2.min.js"></script>
+    <link rel="stylesheet" href="css/main.css" />
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+        },
+      };
+    </script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand schleiprojekt-navbar" href="#"
+        >🇨🇭 - SwissConcreteView</a
+      >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+
+    <center>
+      <div class="container-fluid">
+        <img src="images/logo2.png" alt="" style="height: 25%; width: 25%" />
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1"
+                >Key strength (in MPa)</span
+              >
+              <input
+                id="mpa"
+                type="text"
+                class="form-control"
+                name="mpa"
+                placeholder=""
+                aria-label="Username"
+                aria-describedby="basic-addon1"
+              />
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1"
+                >Required mass (in m^3)</span
+              >
+              <input
+                id="cm"
+                type="text"
+                class="form-control"
+                name="cm"
+                placeholder=""
+                aria-label="Username"
+                aria-describedby="basic-addon1"
+              />
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+              <select
+                class="form-select"
+                id="season"
+                aria-label="Default select example"
+                disabled
+              >
+                <option selected value="spring">Season: Spring</option>
+                <option value="summer">Season: Summer</option>
+                <option value="autumn">Season: Autumn</option>
+                <option value="winter">Season: Winter</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+              <select
+                class="form-select"
+                id="strengthgrade"
+                aria-label="Default select example"
+                disabled
+              >
+                <option selected value="C35">Strength Grade: C35</option>
+                <option value="C45">Strength Grade: C45</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"
+                  >Altitude (in m)</span
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Altitude, e.g. 1500"
+                  aria-label="Altitude"
+                  aria-describedby="basic-addon1"
+                  disabled
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          onclick="dynamicGeneration()"
+          class="btn btn-primary"
+          id="id1"
+        >
+          See options
+        </button>
+
+        <table class="table" id="table_of_mixtures" hidden>
+          <thead>
+            <tr>
+              <th scope="col">Mixture</th>
+              <th scope="col">$\text{CO}_2$ (in $\text{kg}/\text{m}^3$)</th>
+              <th scope="col">Cost (in CHF)</th>
+              <th scope="col">
+                Calculated $\text{CO}_2$ Emission (in $\text{kg}$)
+              </th>
+              <th scope="col">Calculated Cost (in CHF)</th>
+              <th scope="col">Approximate day of strength</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Mixture 1</th>
+              <td>340</td>
+              <td>110</td>
+              <td id="co21">???</td>
+              <td id="cost1">???</td>
+            </tr>
+            <tr>
+              <th scope="row">Mixture 2</th>
+              <td>260</td>
+              <td>100</td>
+              <td id="co22">???</td>
+              <td id="cost2">???</td>
+            </tr>
+            <tr class="table-success">
+              <th scope="row">Mixture 3</th>
+              <td>220</td>
+              <td>95</td>
+              <td id="co23">???</td>
+              <td id="cost3">???</td>
+            </tr>
+          </tbody>
+        </table>
+        <div id="chart1" style="width: 90vw; height: 450px"></div>
+        <div id="chart2" style="width: 90vw; height: 450px"></div>
+      </div>
+      <script src="js/charting2.js"></script>
+    </center>
+    <footer class="text-center text-lg-start bg-light text-muted">
+      <div
+        class="text-center p-4"
+        style="background-color: rgba(0, 0, 0, 0.05)"
+      >
+        © Copyright
+        <script type="text/JavaScript">
+          var cdate=new Date(); document.write(cdate.getFullYear())
+        </script>
+        x. Programmed during HackZurich22.
+      </div>
+    </footer>
+  </body>
+</html>
