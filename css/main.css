@@ -1,0 +1,21 @@
+a {
+  text-decoration: none;
+}
+
+footer {
+  position: relative;
+  margin-top: 100vh;
+  bottom: 0;
+  width: 100%;
+}
+
+.float-hr {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.img-responsive {
+  width: 25%;
+  max-width: 225px;
+  height: auto;
+}
